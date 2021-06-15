@@ -1,7 +1,6 @@
 import React from 'react';
-import './AllItems.scss';
 
-const AllItems = () => {
+const AddSpecialist = () => {
   return (
     <div>
       
@@ -9,4 +8,4 @@ const AllItems = () => {
   );
 };
 
-export default AllItems;
+export default AddSpecialist;
