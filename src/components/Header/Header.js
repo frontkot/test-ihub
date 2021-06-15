@@ -17,17 +17,18 @@ const Header = () => {
   const classNameCounter = 'header__counter';
 
 
-  const navLinkItems= headerItems.map((e) => (
-          <NavLink 
-              exact to={e.path}
-              activeStyle={{color: 'coral'}} 
-              className={classNameNavLink}
-          >
-              {e.text}
-              {e.counter &&
-                {/* favNum > 0 && <span className={classNameCounter}>{favNum}</span> */}
-              }
-          </NavLink>
+  const navLinkItems = headerItems.map((e, index) => (
+    <NavLink 
+        key={index}
+        exact to={e.path}
+        activeStyle={{color: 'coral'}} 
+        className={classNameNavLink}
+    >
+        {e.textContent}
+        {/* {e.counter &&
+          favNum > 0 && <span className={classNameCounter}>{favNum}</span>
+        } */}
+    </NavLink>
   ))
 
   return (

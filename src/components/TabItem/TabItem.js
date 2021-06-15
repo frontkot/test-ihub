@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // import { useSelector } from 'react-redux';
 // import { getFavPsy } from '../../store/favorites/selectors';
 import { useLocation } from 'react-router-dom';
-import './Item.scss'
 
 const TabItem = ({
   className, name, email, article,

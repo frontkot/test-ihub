@@ -1,19 +1,34 @@
-import {  } from './actionTypes';
+import { DISFAVOURITES_LOADING, SAVE_DISFAVOURITES, TOGGLE_DISFAVOURITES } from './actionTypes';
 
 const initialState = {
-  isLoading: false,
-  data: [],
-};
+    isLoading: false,
+    data: JSON.parse(localStorage.getItem('disfavourites-items')) || [
+      {name: 'Igor Belyi', email: 'Igor@gmail.com'},
+      {name: 'Sergey Belyi', email: 'Sergey@gmail.com'},
+    ]
+}
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case LOAD_TEMPLATE:
-    //   return { ...state, ...action.payload };
-    // case TEMPLATE_LOADING:
-    //   return { ...state, isLoading: action.payload };
     default:
-      return state;
+      return state
+    case DISFAVOURITES_LOADING:
+      return { ...state, isLoading: action.payload }
+    case SAVE_DISFAVOURITES:
+      return { ...state, data: action.payload }
+    case TOGGLE_DISFAVOURITES:
+      // const {item, all} = action.payload;
+      // const indexArr = state.data.map(e => e.article)
+      // let arr;
+      // if (indexArr.includes(item)){
+      //   arr = state.data.filter(e => e.article !== item)
+      // } else {
+      //   const favItem = all.filter(e => e.article === item)
+      //   arr = [...state.data, ...favItem]
+      // }
+      // localStorage.setItem('disfavourites-items', JSON.stringify(arr))
+      // return { ...state, data: arr}
   }
-};
+}
 
 export default reducer;

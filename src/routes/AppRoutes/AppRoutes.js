@@ -8,9 +8,9 @@ import AddSpecialist from '../../pages/AddSpecialist/AddSpecialist';
 
 const AppRoutes = () => (
     <Switch>
-        {/* <Route exact path='/' component={AllItems} /> */}
-        {/* <Route path='/favorites' exact component={FavouritesItems} /> */}
-        {/* <Route exact path='/disfavourites' component={DisfavouritesItems} /> */}
+        <Route exact path='/' component={AllItems} />
+        <Route path='/favourites' exact component={FavouritesItems} />
+        <Route exact path='/disfavourites' component={DisfavouritesItems} />
         {/* <Route exact path='/add-specialist' component={AddSpecialist} /> */}
 
         <Route path='*' component={(routeProps) => <Page404 {...routeProps}/>} />
