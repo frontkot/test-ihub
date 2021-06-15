@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import template from './template/reducer';
-import favourites from './favourites/reducer';
-import disfavourites from './disfavourites/reducer';
+import allItems from './all-items/reducer';
+import favouritesItems from './favourites/reducer';
+import disfavouritesItems from './disfavourites/reducer';
 
 const reducer = combineReducers({
-  template,
-  favourites,
-  disfavourites,
+  allItems,
+  favouritesItems,
+  disfavouritesItems,
 });
 
 export default reducer;
