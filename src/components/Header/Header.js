@@ -1,6 +1,7 @@
 import React from 'react';
+import './Header.scss';
 
-const Template = () => {
+const Header = () => {
   return (
     <div>
       
@@ -8,4 +9,4 @@ const Template = () => {
   );
 };
 
-export default Template;
+export default Header;
