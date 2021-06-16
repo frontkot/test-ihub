@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import Select from "react-select";
 import * as yup from "yup";
@@ -22,6 +22,7 @@ const validationSchema = yup.object().shape({
 
 const AddSpecialist = () => {
   const dispatch = useDispatch();
+  const [selectValue, setSelectValue] = useState(null)
   const specialtyOptions = [
     {value: 'psychologist', label: 'Psychologist'},
     {value: 'psychotherapist', label: 'Psychotherapist'},
@@ -29,14 +30,18 @@ const AddSpecialist = () => {
   ];
 
   const handleSubmit = (item) => {
-    dispatch(addNewItem({...item, isFavourite: false, isDisfavourite: false}))
+    dispatch(addNewItem({...item, isFavourite: false, isDisfavourite: false}));
+    setSelectValue(null);
   }
 
   return (
     <Formik
-      initialValues={{ name: '', email: '', specialty: '' }}
+      initialValues={{ name: '', email: '', specialty: null }}
       validationSchema={validationSchema}
-      onSubmit={(values) => handleSubmit(values)}
+      onSubmit={(values, { resetForm }) => {
+        handleSubmit(values);
+        resetForm();
+      }}
     >
       {({ errors, touched, setFieldValue, values }) => (
         <Form className='add-spec__form'>
@@ -52,13 +57,15 @@ const AddSpecialist = () => {
           ) : null}
           <label className='add-spec__label'>Specialty</label>
           <Select
-            type='text'
             name='specialty'
-            placeholder='Choose specialty'
             options={specialtyOptions}
-            defaultOptions
+            placeholder='Choose specialty'
+            value={selectValue}
             className='add-spec__select'
-            onChange={option => setFieldValue('specialty', option.value)}
+            onChange={option => {
+              setSelectValue({label: specialtyOptions.find(e => e.value === option.value).label, value: option.value})  
+              setFieldValue('specialty', option.value)
+            }}
           />
           {errors.specialty && touched.specialty ? (
             <div>{errors.specialty}</div>
