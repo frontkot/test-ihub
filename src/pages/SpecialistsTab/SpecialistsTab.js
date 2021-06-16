@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SpecialistsTab.scss';
 import { useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
@@ -11,6 +11,7 @@ const SpecialistsTab = ({
   const items = useSelector(getAllItems);
   let tabArr;
 
+  // content selection depending on the desired tab
   switch (content) {
     case 'favourites':
       tabArr = items.filter(e => e.isFavourite);
@@ -23,7 +24,7 @@ const SpecialistsTab = ({
       break;
   }
 
-  const renderContent = tabArr.length ?
+  const renderContent = tabArr.length ? // if there are no items
           <SpecialistsContent items={tabArr}/>
         :
           <>
