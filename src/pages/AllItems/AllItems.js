@@ -11,6 +11,8 @@ const AllItems = () => {
       <TabItem 
         name={e.name}
         email={e.email}
+        isFavourite={e.isFavourite}
+        isDisfavourite={e.isDisfavourite}
       />
     )
 

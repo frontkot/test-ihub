@@ -2,10 +2,7 @@ import { FAVOURITES_LOADING, SAVE_FAVOURITES, TOGGLE_FAVOURITES } from './action
 
 const initialState = {
     isLoading: false,
-    data: JSON.parse(localStorage.getItem('favourites-items')) || [
-      {name: 'Sergey Belyi', email: 'Sergey@gmail.com'},
-      {name: 'Igor Belyi', email: 'Igor@gmail.com'},
-    ]
+    data: [],
 }
 
 const reducer = (state = initialState, action) => {

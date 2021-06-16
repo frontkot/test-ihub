@@ -1,48 +1,48 @@
 import React from 'react';
 import './Footer.scss'
-// import { useLocation } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { getFavoritesProducts } from '../../store/favorites/selectors';
-// import { getAllProducts } from '../../store/products/selectors';
-// import { getProductsInCart } from '../../store/cart/selectors';
+import { getAllItems } from '../../store/all-items/selectors';
+import { getFavouritesItems } from '../../store/favourites/selectors';
+import { getDisfavouritesItems } from '../../store/disfavourites/selectors';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
-    // const location = useLocation();
-    // const page = location.pathname;
-    // const allProducts = useSelector(getAllProducts);
-    // const favoritesProducts = useSelector(getFavoritesProducts);
-    // const productsInCart = useSelector(getProductsInCart);
-    // const fixedFooterClassName = 'footer-bg footer-fixed';
-    // const normalFooterClassName = 'footer-bg';
+    const location = useLocation();
+    const page = location.pathname;
+    const allItems = useSelector(getAllItems);
+    const favItems = useSelector(getFavouritesItems);
+    const disfavItems = useSelector(getDisfavouritesItems);
+    const fixedFooterClassName = 'footer-bg footer-fixed';
+    const normalFooterClassName = 'footer-bg';
 
-    // let products;
-    // switch(page) {
-    //     case '/favorites':
-    //         products = favoritesProducts;
-    //         break;
-    //     case '/cart': 
-    //         products = productsInCart;
-    //         break;
-    //     case '/': 
-    //         products = allProducts;
-    //         break;
-    //     default:
-    //         products = [];
-    //         break;
-    // }
+    let items;
+    switch(page) {
+        case '/favorites':
+            items = favItems;
+            break;
+        case '/disfavourites': 
+            items = disfavItems;
+            break;
+        case '/': 
+            items = allItems;
+            break;
+        default:
+            items = [];
+            break;
+    }
 
     return (
-        // <div className={
-        //         products.length < 5 ? 
-        //             products.length > 0 ?
-        //                 window.innerHeight < 650 ? normalFooterClassName :  fixedFooterClassName 
-        //             : fixedFooterClassName
-        //         : normalFooterClassName
-        //     }>
+        <div className={
+                allItems.length < 5 ? 
+                    allItems.length > 0 ?
+                        window.innerHeight < 650 ? normalFooterClassName :  fixedFooterClassName 
+                    : fixedFooterClassName
+                : normalFooterClassName
+            }>
             <div className='container'>
                 <p>Aaa...Together because...</p>
             </div>
-        // </div>
+        </div>
     );
 }
 
