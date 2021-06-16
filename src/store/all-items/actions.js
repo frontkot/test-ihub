@@ -1,6 +1,6 @@
-import { ALL_ITEMS_LOADING, LOAD_ALL_ITEMS } from './types';
+import { ALL_ITEMS_LOADING, LOAD_ALL_ITEMS } from './actionTypes';
 
-export const allAitemsLoading = (isLoading) => ({
+export const allItemsLoading = (isLoading) => ({
   type: ALL_ITEMS_LOADING, 
   payload: isLoading
 })

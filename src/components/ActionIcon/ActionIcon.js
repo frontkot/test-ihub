@@ -2,12 +2,13 @@ import React from 'react';
 import './ActionIcon.scss'
 
 const ActionIcon = ({
-  isActive, isFavourite
+  isActive, iconSrc, textContent
 }) => {
   return (
-    <div>
-      
-    </div>
+    // <icon src={iconSrc}/>
+    <button className={isActive ? 'active__button' : 'non-active__button'}>
+      {textContent}
+    </button>
   );
 };
 

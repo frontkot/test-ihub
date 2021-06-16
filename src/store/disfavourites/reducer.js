@@ -2,10 +2,7 @@ import { DISFAVOURITES_LOADING, SAVE_DISFAVOURITES, TOGGLE_DISFAVOURITES } from 
 
 const initialState = {
     isLoading: false,
-    data: JSON.parse(localStorage.getItem('disfavourites-items')) || [
-      {name: 'Igor Belyi', email: 'Igor@gmail.com'},
-      {name: 'Sergey Belyi', email: 'Sergey@gmail.com'},
-    ]
+    data: [],
 }
 
 const reducer = (state = initialState, action) => {

@@ -1,13 +1,15 @@
-// import axios from 'axios';
-// import { favoritesLoading, saveFavorites, toggleFav } from './actions';
+import axios from 'axios';
+import { saveDisfavourites, disfavouritesLoading } from './actions';
 
-// export const loadFavorites = (items) => (dispatch) => {
-
-//     dispatch(favoritesLoading(true))
-//     dispatch(saveFavorites(items))
-//     dispatch(favoritesLoading(false))
-// }
-
+export const loadDisfavourites = () => (dispatch) => {
+    dispatch(disfavouritesLoading(true))
+    axios('./items.json')
+        .then(res => {
+            const disfavItems = res.data.items.filter(e => e.isDisfavourite)
+            dispatch(saveDisfavourites(disfavItems))
+            dispatch(disfavouritesLoading(false))
+    })
+}
 // export const toggleFavorites = (index, arr) => (dispatch) => {
 //     dispatch(toggleFav(index, arr))
 // }

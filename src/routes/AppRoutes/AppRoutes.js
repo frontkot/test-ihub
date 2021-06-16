@@ -5,6 +5,7 @@ import AllItems from '../../pages/AllItems/AllItems';
 import FavouritesItems from '../../pages/FavouritesItems/FavouritesItems';
 import DisfavouritesItems from '../../pages/DisfavouritesItems/DisfavouritesItems';
 import AddSpecialist from '../../pages/AddSpecialist/AddSpecialist';
+import Analitycs from '../../pages/Analitycs/Analitycs';
 
 const AppRoutes = () => (
     <Switch>
@@ -12,10 +13,10 @@ const AppRoutes = () => (
         <Route path='/favourites' exact component={FavouritesItems} />
         <Route exact path='/disfavourites' component={DisfavouritesItems} />
         {/* <Route exact path='/add-specialist' component={AddSpecialist} /> */}
+        {/* <Route exact path='/add-specialist' component={Analitycs} /> */}
 
         <Route path='*' component={(routeProps) => <Page404 {...routeProps}/>} />
     </Switch>
 );
-
 
 export default AppRoutes;
