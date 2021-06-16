@@ -13,6 +13,7 @@ const AllItems = () => {
         email={e.email}
         isFavourite={e.isFavourite}
         isDisfavourite={e.isDisfavourite}
+        specialty={e.specialty}
       />
     )
 

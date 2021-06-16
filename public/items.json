@@ -1,9 +1,9 @@
 {
   "items": [
-    {"name": "Igor Belyi", "email": "Igor@gmail.com", "isFavourite": true, "isDisfavourite": false},
-    {"name": "Sergey Belyi", "email": "Sergey@gmail.com", "isFavourite": false, "isDisfavourite": false},
-    {"name": "Vladislav Belyi", "email": "Vladislav@gmail.com", "isFavourite": false, "isDisfavourite": true},
-    {"name": "Dmitriy Belyi", "email": "Dmitriy@gmail.com", "isFavourite": false, "isDisfavourite": false},
-    {"name": "Anastasiya Belaya", "email": "Anastasiya@gmail.com", "isFavourite": true, "isDisfavourite": false}
+    {"name": "Igor Belyi", "email": "Igor@gmail.com", "isFavourite": true, "isDisfavourite": false, "specialty": "psychologist"},
+    {"name": "Sergey Belyi", "email": "Sergey@gmail.com", "isFavourite": false, "isDisfavourite": false, "specialty": "psychotherapist"},
+    {"name": "Vladislav Belyi", "email": "Vladislav@gmail.com", "isFavourite": false, "isDisfavourite": true, "specialty": "psychiatrist"},
+    {"name": "Dmitriy Belyi", "email": "Dmitriy@gmail.com", "isFavourite": false, "isDisfavourite": false, "specialty": "psychologist"},
+    {"name": "Anastasiya Belaya", "email": "Anastasiya@gmail.com", "isFavourite": true, "isDisfavourite": false, "specialty": "psychiatrist"}
   ]
 }
