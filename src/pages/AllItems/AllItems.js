@@ -7,8 +7,9 @@ import TabItem from '../../components/TabItem/TabItem';
 const AllItems = () => {
   const items = useSelector(getAllItems);
 
-  const renderItems = items.map(e => 
-      <TabItem 
+  const renderItems = items.map((e, index) => 
+      <TabItem
+        key={index}
         name={e.name}
         email={e.email}
         isFavourite={e.isFavourite}

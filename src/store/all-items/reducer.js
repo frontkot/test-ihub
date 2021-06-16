@@ -1,4 +1,4 @@
-import { LOAD_ALL_ITEMS, ALL_ITEMS_LOADING } from './actionTypes';
+import { LOAD_ALL_ITEMS, ALL_ITEMS_LOADING, ADD_NEW_ITEM } from './actionTypes';
 
 const initialState = {
   isLoading: false,
@@ -11,6 +11,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, data: action.payload };
     case ALL_ITEMS_LOADING:
       return { ...state, isLoading: action.payload };
+    case ADD_NEW_ITEM:
+      return { ...state, data: [...state.data, action.payload] };
     default:
       return state;
   }

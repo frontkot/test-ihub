@@ -12,7 +12,7 @@ const AppRoutes = () => (
         <Route exact path='/' component={AllItems} />
         <Route path='/favourites' exact component={FavouritesItems} />
         <Route exact path='/disfavourites' component={DisfavouritesItems} />
-        {/* <Route exact path='/add-specialist' component={AddSpecialist} /> */}
+        <Route exact path='/add-specialist' component={AddSpecialist} />
         <Route exact path='/analitycs' component={Analitycs} />
 
         <Route path='*' component={(routeProps) => <Page404 {...routeProps}/>} />

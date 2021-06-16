@@ -11,8 +11,9 @@ const FavouritesItems = () => {
     return <div>So far, there are no specialists in the category of Favourites</div>
   }
 
-  const renderItems = favouritesItems.map(e => 
+  const renderItems = favouritesItems.map((e, index) => 
     <TabItem
+      key={index}
       name={e.name}
       email={e.email}
       isFavourite={e.isFavourite}
