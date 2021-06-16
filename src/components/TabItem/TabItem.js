@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import ActionIcon from '../ActionIcon/ActionIcon';
 
 const TabItem = ({
-  className, name, email, article, isFavourite, isDisfavourite
+  className, name, email, article, isFavourite, isDisfavourite, specialty
 }) => {
   
   return (
     <li id={article} className={className}>
     <h3>{name}</h3>
+    <p>Specialty: {specialty}</p>
     <p>Email: {email}</p>
     <ActionIcon 
       isActive={isFavourite}
