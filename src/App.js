@@ -15,7 +15,7 @@ const App = () => {
     dispatch(loadItems())
   }, [dispatch])
 
-  if(isLoading) {
+  if(isLoading) { // return Loader before the content has loaded
     return <Loader />
   }
 

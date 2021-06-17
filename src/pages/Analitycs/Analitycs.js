@@ -5,12 +5,12 @@ import { getAllItems } from '../../store/all-items/selectors';
 import AnalitycItem from './AnalitycsItem';
 
 const Analitycs = () => {
-  const allItems = useSelector(getAllItems);
-  const totalPsychologist = allItems.filter(e => e.specialty === 'psychologist');
-  const totalPsychotherapist = allItems.filter(e => e.specialty === 'psychotherapist');
-  const totalPsychiatrist = allItems.filter(e => e.specialty === 'psychiatrist');
-  const totalFav = allItems.filter(e => e.isFavourite);
-  const totalDisfav = allItems.filter(e => e.isDisfavourite);
+  const allItems = useSelector(getAllItems); // get all items
+  const totalPsychologist = allItems.filter(e => e.specialty === 'psychologist'); // get only psychologist items
+  const totalPsychotherapist = allItems.filter(e => e.specialty === 'psychotherapist'); // get only psychotherapist  items
+  const totalPsychiatrist = allItems.filter(e => e.specialty === 'psychiatrist'); // get only psychiatrist items
+  const totalFav = allItems.filter(e => e.isFavourite); // get only fav items
+  const totalDisfav = allItems.filter(e => e.isDisfavourite); // get only dusfav items
 
   return (
     <div className='analityc__container'>

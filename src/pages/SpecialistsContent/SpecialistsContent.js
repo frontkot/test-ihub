@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TabItem from '../../components/TabItem/TabItem';
 import Select from "react-select";
 import './SpecialistsContent.scss';
+import PropTypes from 'prop-types';
 
 const SpecialistsContent = ({
   items
@@ -31,17 +32,17 @@ const SpecialistsContent = ({
       break;
   }
 
-  const renderItems = arrForRender.map((e, index) =>
-  <TabItem
-    key={index}
-    name={e.name}
-    email={e.email}
-    isFavourite={e.isFavourite}
-    isDisfavourite={e.isDisfavourite}
-    specialty={e.specialty}
-    id={e.id}
-  />
-)
+  const renderItems = arrForRender.map((e, index) => // map items for tender
+    <TabItem
+      key={index}
+      name={e.name}
+      email={e.email}
+      isFavourite={e.isFavourite}
+      isDisfavourite={e.isDisfavourite}
+      specialty={e.specialty}
+      id={e.id}
+    />
+  )
 
   return (
     <>
@@ -63,9 +64,16 @@ const SpecialistsContent = ({
           :
             <h3 className='specialists__empty'>Unfortunately, there are no such specialists.</h3> // render if there are no specialists of this category
       }
-
     </>
   );
 };
 
 export default SpecialistsContent;
+
+SpecialistsContent.propTypes = {
+  items: PropTypes.array,
+};
+
+SpecialistsContent.defaultProps = {
+  items: [],
+};
