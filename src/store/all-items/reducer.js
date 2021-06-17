@@ -1,4 +1,4 @@
-import { LOAD_ALL_ITEMS, ALL_ITEMS_LOADING, ADD_NEW_ITEM } from './actionTypes';
+import { LOAD_ALL_ITEMS, ALL_ITEMS_LOADING, ADD_NEW_ITEM, TOGGLE_ITEM } from './actionTypes';
 
 const initialState = {
   isLoading: false,
@@ -13,6 +13,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, isLoading: action.payload };
     case ADD_NEW_ITEM:
       return { ...state, data: [...state.data, action.payload] };
+    case TOGGLE_ITEM:
+      const { newItem, id } = action.payload;
+      const newData = state.data.map(e => e.id === id ? newItem : e);
+      return { ...state, data: newData };
     default:
       return state;
   }
