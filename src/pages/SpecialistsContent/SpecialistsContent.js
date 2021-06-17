@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TabItem from '../../components/TabItem/TabItem';
 import Select from "react-select";
+import './SpecialistsContent.scss';
 
 const SpecialistsContent = ({
   items
@@ -38,6 +39,7 @@ const SpecialistsContent = ({
     isFavourite={e.isFavourite}
     isDisfavourite={e.isDisfavourite}
     specialty={e.specialty}
+    id={e.id}
   />
 )
 
@@ -53,14 +55,14 @@ const SpecialistsContent = ({
           onChange={option => setFilterFeature(option)}
         />
       </div>
-      <div className='specialists__content'>
+      <ul className='specialists__content'>
         {renderItems.length 
           ?
             renderItems 
           : 
             <h3 className='specialists__empty'>Unfortunately, there are no such specialists.</h3>
         }
-      </div>
+      </ul>
     </>
   );
 };

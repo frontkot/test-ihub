@@ -2,6 +2,7 @@ import React from 'react';
 import './Analitycs.scss';
 import { useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
+import AnalitycItem from './AnalitycsItem';
 
 const Analitycs = () => {
   const allItems = useSelector(getAllItems);
@@ -15,19 +16,12 @@ const Analitycs = () => {
     <div className='analityc__container'>
       <h2 className='analityc__header'>Analitycs</h2>
       <div className='amalityc__content'>
-        <h4 className='analityc__title'>Total specialists</h4>
-        <p className='analitycs__result'>{allItems.length}</p>
-        <h4 className='analityc__title'>Total psychologist</h4>
-        <p className='analitycs__result'>{totalPsychologist.length}</p>
-        <h4 className='analityc__title'>Total psychotherapist</h4>
-        <p className='analitycs__result'>{totalPsychotherapist.length}</p>
-        <h4 className='analityc__title'>Total psychiatrist</h4>
-        <p className='analitycs__result'>{totalPsychiatrist.length}</p>
-
-        <h4 className='analityc__title'>Total favourites</h4>
-        <p className='analitycs__result'>{totalFav.length}</p>
-        <h4 className='analityc__title'>Total disfavourites</h4>
-        <p className='analitycs__result'>{totalDisfav.length}</p>
+        <AnalitycItem title='Total specialists' result={allItems.length} />
+        <AnalitycItem title='Total psychologist' result={totalPsychologist.length} />
+        <AnalitycItem title='Total psychotherapist' result={totalPsychotherapist.length} />
+        <AnalitycItem title='Total psychiatrist' result={totalPsychiatrist.length} />
+        <AnalitycItem title='Total favourites' result={totalFav.length} />
+        <AnalitycItem title='Total disfavourites' result={totalDisfav.length} />
       </div>
     </div>
   );
