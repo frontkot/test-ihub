@@ -2,10 +2,10 @@ import React from 'react';
 import './ActionIcon.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
-import { toggleItem } from '../../store/all-items/actions';
+import { toggleItem } from '../../store/all-items/operations';
 
 const ActionIcon = ({
-  isFavourite, isDisfavourite, iconSrc, textContent, id
+  isFavourite, isDisfavourite, textContent, id
 }) => {
   const dispatch = useDispatch();
   const allItems = useSelector(getAllItems);
@@ -13,7 +13,7 @@ const ActionIcon = ({
   let itemIsFavourite = item.isFavourite;
   let itemIsDisfavourite = item.isDisfavourite;
   
-  const toggle = () => {
+  const toggle = async () => {
     if (isFavourite !== undefined) {
       itemIsFavourite = !itemIsFavourite;
       if(itemIsDisfavourite) {
@@ -27,8 +27,7 @@ const ActionIcon = ({
     }
     
     const newItem = {...item, isFavourite: itemIsFavourite, isDisfavourite: itemIsDisfavourite};
-    dispatch(toggleItem(newItem, id))
-
+    dispatch(toggleItem(newItem))
   }
   return (
     <button 

@@ -5,17 +5,17 @@ export const allItemsLoading = (isLoading) => ({
   payload: isLoading
 })
 
-export const saveAllItems = (items) => ({
+export const saveAllItemsToStore = (items) => ({
   type: LOAD_ALL_ITEMS, 
   payload: items
 })
 
-export const addNewItem = (newItem) => ({
+export const addNewItemToStore = (newItem) => ({
   type: ADD_NEW_ITEM,
   payload: newItem
 })
 
-export const toggleItem = (newItem, id) => ({
+export const toggleItemInStore = (newItem, id) => ({
   type: TOGGLE_ITEM,
   payload: {newItem: newItem, id: id}
 })

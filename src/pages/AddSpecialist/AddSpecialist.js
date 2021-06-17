@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import Select from "react-select";
 import { useDispatch } from 'react-redux';
-import { addNewItem } from '../../store/all-items/actions';
+import { addNewItem } from '../../store/all-items/operations';
 import { validationSchema, specialtyOptions } from './utils';
 
 const AddSpecialist = () => {
   const dispatch = useDispatch();
   const [selectValue, setSelectValue] = useState(null)
 
-  const handleSubmit = (item) => {
-    dispatch(addNewItem(
-      { 
+  const handleSubmit = async (item) => {
+    const newItem = { 
         ...item, // distructure obj
         isFavourite: false, // add default isFavourite
         isDisfavourite: false, // add default isDisfavourite
         id: `${item.name.split(' ').join('')}-${item.specialty}` // add custom id
       }
-    ));
-    setSelectValue(null);
+
+    dispatch(addNewItem(newItem)) // add new item to store and to DB
+    setSelectValue(null); // reset select
   }
 
   return (
@@ -27,7 +27,7 @@ const AddSpecialist = () => {
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
         handleSubmit(values);
-        resetForm();
+        resetForm(); // reset form
       }}
     >
       {({ errors, touched, setFieldValue, values }) => (
@@ -51,8 +51,8 @@ const AddSpecialist = () => {
             value={selectValue}
             className='add-spec__select'
             onChange={option => {
-              setSelectValue({label: specialtyOptions.find(e => e.value === option.value).label, value: option.value})  
-              setFieldValue('specialty', option.value)
+              setSelectValue({label: specialtyOptions.find(e => e.value === option.value).label, value: option.value}) // set selected value to state 
+              setFieldValue('specialty', option.value) // set selected value to field
             }}
           />
           {errors.specialty && touched.specialty ? (
