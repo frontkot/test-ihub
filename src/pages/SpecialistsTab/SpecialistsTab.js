@@ -14,13 +14,13 @@ const SpecialistsTab = ({
   // content selection depending on the desired tab
   switch (content) {
     case 'favourites':
-      tabArr = items.filter(e => e.isFavourite);
+      tabArr = items.filter(e => e.isFavourite); // filter items if the tab 'favourites'
       break;
     case 'disfavourites':
-      tabArr = items.filter(e => e.isDisfavourite);
+      tabArr = items.filter(e => e.isDisfavourite); // filter items if the tab 'disfavourites'
       break;
     default:
-      tabArr = items;
+      tabArr = items; // items if the tab 'all'
       break;
   }
 

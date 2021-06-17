@@ -1,7 +1,10 @@
 .tab {
   &__item {
+    list-style-type: none;
     width: 70%;
     padding: 15px;
+    background-color: rgba(0, 0, 0, 0.108);
+    border-radius: 10px;
   }
   &__header {
     margin: 0;

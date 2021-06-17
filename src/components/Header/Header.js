@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
 
-const headerItems = [
+const headerItems = [ // put all header items in arr
   {path: '/', textContent: 'All Specialists'},
   {path: '/favourites', textContent: 'Favorites Specialists', counter: true},
   {path: '/disfavourites', textContent: 'Disfavourites Specialists', counter: true},
@@ -19,22 +19,22 @@ const Header = () => {
   const classNameNavLink = 'header__item';
   const classNameCounter = 'header__counter';
 
-  const navLinkItems = headerItems.map((e, index) => (
+  const navLinkItems = headerItems.map((e, index) => ( // map items for render
     <NavLink 
         key={index}
         exact to={e.path}
         activeStyle={{color: 'coral'}} 
         className={classNameNavLink}
     >
-        {e.textContent}
-        {e.counter &&
-          e.path === '/favourites' ?
-            favNum > 0 && <span className={classNameCounter}>{favNum}</span>
-          :
-            e.path === '/disfavourites' ? 
-              disfavNum > 0 && <span className={classNameCounter}>{disfavNum}</span>
-            : null
-        }
+      {e.textContent}
+      {e.counter && // if we have at least one item in fav or disfav, we show counter
+        e.path === '/favourites' ?
+          favNum > 0 && <span className={classNameCounter}>{favNum}</span> // counter for favourites
+        :
+          e.path === '/disfavourites' ? 
+            disfavNum > 0 && <span className={classNameCounter}>{disfavNum}</span> // counter for disfavourites
+          : null
+      }
     </NavLink>
   ))
 

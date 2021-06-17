@@ -1,12 +1,11 @@
 import { saveAllItemsToStore, allItemsLoading, toggleItemInStore, addNewItemToStore } from './actions';
-
 import db from '../../firebase.config';
 
 export const loadItems = () => async (dispatch) => {
-    dispatch(allItemsLoading(true))
+    dispatch(allItemsLoading(true)) // return Loader before the content has loaded
     const res = await db.collection('specialists').get();
     dispatch(saveAllItemsToStore(res.docs.map(doc => doc.data()))) // save all items in store
-    dispatch(allItemsLoading(false))
+    dispatch(allItemsLoading(false)) // take away Loader after the content has loaded
 }
 
 export const toggleItem = (newItem) => async (dispatch) => {

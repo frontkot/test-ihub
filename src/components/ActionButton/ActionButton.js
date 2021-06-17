@@ -3,6 +3,7 @@ import './ActionButton.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
 import { toggleItem } from '../../store/all-items/operations';
+import PropTypes from 'prop-types';
 
 const ActionButton = ({
   isFavourite, isDisfavourite, textContent, id
@@ -15,19 +16,19 @@ const ActionButton = ({
   
   const toggle = async () => {
     if (isFavourite !== undefined) {
-      itemIsFavourite = !itemIsFavourite;
+      itemIsFavourite = !itemIsFavourite; // change value of isFavourite
       if(itemIsDisfavourite) {
-        itemIsDisfavourite = !itemIsDisfavourite;
+        itemIsDisfavourite = !itemIsDisfavourite; // is isDisfavourite already true change value of isDifavourite
       }
     } else {
-      itemIsDisfavourite = !itemIsDisfavourite;
+      itemIsDisfavourite = !itemIsDisfavourite; // change value of isDifavourite
       if(itemIsFavourite) {
-        itemIsFavourite = !itemIsFavourite
+        itemIsFavourite = !itemIsFavourite; // is isDisfavourite already true change value of isFavourite
       }
     }
     
-    const newItem = {...item, isFavourite: itemIsFavourite, isDisfavourite: itemIsDisfavourite};
-    dispatch(toggleItem(newItem))
+    const newItem = {...item, isFavourite: itemIsFavourite, isDisfavourite: itemIsDisfavourite}; // sompile new item for sent to store and DB
+    dispatch(toggleItem(newItem)) // toggle fav in store operations
   }
   return (
     <button 
@@ -40,3 +41,18 @@ const ActionButton = ({
 };
 
 export default ActionButton;
+
+
+ActionButton.propTypes = {
+  isFavourite: PropTypes.bool,
+  isDisfavourite: PropTypes.bool,
+  textContent: PropTypes.string,
+  id: PropTypes.string,
+}
+
+ActionButton.defaultTypes = {
+  isFavourite: false,
+  isDisfavourite: false,
+  textContent: '',
+  id: '',
+}

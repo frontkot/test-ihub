@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
       return { ...state, data: [...state.data, action.payload] };
     case TOGGLE_ITEM:
       const { newItem, id } = action.payload;
-      const newData = state.data.map(e => e.id === id ? newItem : e);
+      const newData = state.data.map(e => e.id === id ? newItem : e); // change the desired element of the array
       return { ...state, data: newData };
     default:
       return state;
