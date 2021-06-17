@@ -1,9 +1,21 @@
 .specialists {
   &__content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    justify-items: center;
     & li {
       list-style-type: none;
+    }
+  }
+  &__select{
+    &--field {
+      max-width: 30%;
+      margin: 0 auto;
     }
   }
 }

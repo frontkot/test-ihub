@@ -1,27 +1,29 @@
 import React from 'react';
 import './TabItem.scss';
 import PropTypes from 'prop-types';
-import ActionIcon from '../ActionIcon/ActionIcon';
+import ActionButton from '../ActionButton/ActionButton';
 
 const TabItem = ({
-  className, name, email, isFavourite, isDisfavourite, specialty, id
+  name, email, isFavourite, isDisfavourite, specialty, id
 }) => {
   
   return (
-    <li className={className}>
-      <h3>{name}</h3>
-      <p>Specialty: {specialty}</p>
-      <p>Email: {email}</p>
-      <ActionIcon
-        id={id}
-        isFavourite={isFavourite}
-        textContent='Favourites'
-      />
-      <ActionIcon
-        id={id}
-        isDisfavourite={isDisfavourite}
-        textContent='Disfavourites'
-      />
+    <li className='tab__item'>
+      <h3 className='tab__header'>{name}</h3>
+      <p className='tab__par'>Specialty: {specialty}</p>
+      <p className='tab__par'>Email: {email}</p>
+      <div className='tab__button--container'>
+        <ActionButton
+          id={id}
+          isFavourite={isFavourite}
+          textContent='Favourites'
+        />
+        <ActionButton
+          id={id}
+          isDisfavourite={isDisfavourite}
+          textContent='Disfavourites'
+        />
+      </div>
     </li>
   );
 };

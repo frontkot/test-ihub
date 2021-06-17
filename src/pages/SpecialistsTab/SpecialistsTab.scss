@@ -1,0 +1,19 @@
+.tab {
+  &__container {
+    padding: 20px 10px;
+  }
+}
+
+.none-items {
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0, 128, 68);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  &__link:hover {
+    background-color: rgba(0, 128, 0, 0.666);
+  }
+}

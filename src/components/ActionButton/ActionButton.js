@@ -1,10 +1,10 @@
 import React from 'react';
-import './ActionIcon.scss'
+import './ActionButton.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
 import { toggleItem } from '../../store/all-items/operations';
 
-const ActionIcon = ({
+const ActionButton = ({
   isFavourite, isDisfavourite, textContent, id
 }) => {
   const dispatch = useDispatch();
@@ -39,4 +39,4 @@ const ActionIcon = ({
   );
 };
 
-export default ActionIcon;
+export default ActionButton;

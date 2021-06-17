@@ -24,12 +24,12 @@ const SpecialistsTab = ({
       break;
   }
 
-  const renderContent = tabArr.length ? // if there are no items
+  const renderContent = tabArr.length ? 
           <SpecialistsContent items={tabArr}/>
-        :
-          <>
-            <h2 className='none-items'>At the moment there are no specialists</h2>
-            <Link className='page404-button' to={'/add-specialist'}>Add a new specialist</Link>
+        : // render if there are no items
+          <> 
+            <h2 className='none-items__header'>At the moment there are no specialists</h2>
+            <Link className='none-items__link' to={'/add-specialist'}>Add a new specialist</Link>
           </>
 
   return (

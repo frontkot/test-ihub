@@ -18,20 +18,20 @@ const SpecialistsContent = ({
 
   switch (filterFeature.value) {
     case filterOptions[1].value:
-      arrForRender = items.filter(e => e.specialty === filterOptions[1].value);
+      arrForRender = items.filter(e => e.specialty === filterOptions[1].value); // When choose 'Psychologists' 
       break;
     case filterOptions[2].value:
-      arrForRender = items.filter(e => e.specialty === filterOptions[2].value);
+      arrForRender = items.filter(e => e.specialty === filterOptions[2].value); // When choose 'Psychotherapists' 
       break
     case filterOptions[3].value:
-      arrForRender = items.filter(e => e.specialty === filterOptions[3].value);
+      arrForRender = items.filter(e => e.specialty === filterOptions[3].value); // When choose 'Psychiatrists' 
       break
     default:
-      arrForRender = items;
+      arrForRender = items; // When choose 'All specialists' 
       break;
   }
 
-  const renderItems = arrForRender.map((e, index) => 
+  const renderItems = arrForRender.map((e, index) =>
   <TabItem
     key={index}
     name={e.name}
@@ -46,7 +46,7 @@ const SpecialistsContent = ({
   return (
     <>
       <div className='specialists__select'>
-        <h4 className='specialists__select--title'>Choose the required specialty</h4>
+        <h3 className='specialists__select--title'>Choose the required specialty</h3>
         <Select
           type='text'
           options={filterOptions}
@@ -55,14 +55,15 @@ const SpecialistsContent = ({
           onChange={option => setFilterFeature(option)}
         />
       </div>
-      <ul className='specialists__content'>
-        {renderItems.length 
-          ?
-            renderItems 
-          : 
-            <h3 className='specialists__empty'>Unfortunately, there are no such specialists.</h3>
-        }
-      </ul>
+      {
+        renderItems.length ? 
+            <ul className='specialists__content'>
+              {renderItems}
+            </ul>
+          :
+            <h3 className='specialists__empty'>Unfortunately, there are no such specialists.</h3> // render if there are no specialists of this category
+      }
+
     </>
   );
 };

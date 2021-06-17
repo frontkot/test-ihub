@@ -1,0 +1,17 @@
+.analityc {
+  &__header {
+    text-transform: uppercase;
+  }
+  &__content {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  };
+  &__title, &__result {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
