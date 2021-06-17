@@ -3,11 +3,10 @@ import React from 'react';
 const AnalitycsItem = ({
   title, result
 }) => (
-  <>
-    <h4 className='analitycs__title'>{title}</h4>
-    <p className='analitycs__result'>{result}</p>
-  </>
+  <div className='analityc__item'>
+    <p className='analityc__title'>{title}</p>
+    <p className='analityc__result'>{result}</p>
+  </div>
 );
-
 
 export default AnalitycsItem;

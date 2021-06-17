@@ -15,7 +15,7 @@ const Analitycs = () => {
   return (
     <div className='analityc__container'>
       <h2 className='analityc__header'>Analitycs</h2>
-      <div className='amalityc__content'>
+      <div className='analityc__content'>
         <AnalitycItem title='Total specialists' result={allItems.length} />
         <AnalitycItem title='Total psychologist' result={totalPsychologist.length} />
         <AnalitycItem title='Total psychotherapist' result={totalPsychotherapist.length} />

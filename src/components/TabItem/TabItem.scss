@@ -1,0 +1,14 @@
+.tab {
+  &__item {
+    width: 70%;
+    padding: 15px;
+  }
+  &__header {
+    margin: 0;
+
+  }
+  &__button--container {
+    display: flex;
+    justify-content: space-around;
+  }
+}

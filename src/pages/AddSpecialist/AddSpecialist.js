@@ -4,6 +4,7 @@ import Select from "react-select";
 import { useDispatch } from 'react-redux';
 import { addNewItem } from '../../store/all-items/operations';
 import { validationSchema, specialtyOptions } from './utils';
+import './AddSpecialist.scss';
 
 const AddSpecialist = () => {
   const dispatch = useDispatch();
@@ -31,51 +32,51 @@ const AddSpecialist = () => {
       }}
     >
       {({ errors, touched, setFieldValue, values }) => (
-        <Form className='add-spec__form'>
-          <label className='add-spec__label'>Specialist name</label>
+        <Form className='add-form__container'>
+          <label className='add-form__label'>Specialist name</label>
           <Field 
             type='text'
             name='name'
             placeholder='Add specialist name'
-            className='add-spec__input'
+            className='add-form__input'
           />
           {errors.name && touched.name ? (
-            <div>{errors.name}</div>
+            <div className='add-form__error'>{errors.name}</div>
           ) : null}
 
-          <label className='add-spec__label'>Specialty</label>
+          <label className='add-form__label'>Specialty</label>
           <Select
             name='specialty'
             options={specialtyOptions}
             placeholder='Choose specialty'
             value={selectValue}
-            className='add-spec__select'
+            className='add-form__select'
             onChange={option => {
               setSelectValue({label: specialtyOptions.find(e => e.value === option.value).label, value: option.value}) // set selected value to state 
               setFieldValue('specialty', option.value) // set selected value to field
             }}
           />
           {errors.specialty && touched.specialty ? (
-            <div>{errors.specialty}</div>
+            <div className='add-form__error'>{errors.specialty}</div>
           ) : null}
 
-          <label className='add-spec__label'>Specialist email</label>
+          <label className='add-form__label'>Specialist email</label>
           <Field 
             type='email'
             name='email'
             placeholder='Add specialist email'
             label='Specialist email'
-            className='add-spec__input'
+            className='add-form__input'
           />
           {errors.email && touched.email ? (
-            <div>{errors.email}</div>
+            <div className='add-form__error'>{errors.email}</div>
           ) : null}
           
           <Field 
             type='submit'
             name='submit'
             value='Add new specialist to DB'
-            className='add-spec__submit'
+            className='add-form__submit'
           />
         </Form>
       )}
