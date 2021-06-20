@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllItems } from '../../store/all-items/selectors';
+import useWinSize from '../../customHooks/useWinSize';
 
 const headerItems = [ // put all header items in arr
   {path: '/', textContent: 'All Specialists'},
@@ -13,11 +14,13 @@ const headerItems = [ // put all header items in arr
 ]
 
 const Header = () => {
+  const [isMobileHeader, setIsMobileHeader] = useState(false);
   const items = useSelector(getAllItems);
   const favNum = items.filter(e => e.isFavourite).length;
   const disfavNum = items.filter(e => e.isDisfavourite).length;
   const classNameNavLink = 'header__item';
   const classNameCounter = 'header__counter';
+  const winSize = useWinSize();
 
   const navLinkItems = headerItems.map((e, index) => ( // map items for render
     <NavLink 
@@ -38,11 +41,26 @@ const Header = () => {
     </NavLink>
   ))
 
+  const burgerButton = 
+    <div className="box" onClick={() => setIsMobileHeader(!isMobileHeader)}>
+      <div className="burger">
+        <span></span>
+      </div>
+    </div>
+
+
   return (
     <div className='header__bg'>
       <div className='header__container'>
         <nav className='header__content'>
-          {navLinkItems}
+          {winSize.width < 769 ? 
+            isMobileHeader ?
+                navLinkItems
+              :
+                burgerButton
+            :
+              navLinkItems
+          }
         </nav>
       </div>
     </div>
