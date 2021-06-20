@@ -20,3 +20,17 @@
 .active__button {
   color: coral;
 }
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+  .active__button, .non-active__button {
+    font-size: 10px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .active__button, .non-active__button {
+    font-size: 10px;
+    padding: 6px;
+  }
+}

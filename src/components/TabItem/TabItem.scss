@@ -2,19 +2,21 @@
   &__item {
     list-style-type: none;
     width: 70%;
-    padding: 15px;
+    padding: 25px;
     background-color: rgba(0, 0, 0, 0.108);
     border-radius: 10px;
     position: relative;
   }
   &__header {
     margin: 0;
-
   }
   &__button {
     &--container {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      & button + button {
+        margin-left: 20px;
+      }
     }
     &--delete {
       position: absolute;
@@ -38,5 +40,62 @@
       
 
     }
+  }
 }
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+  .tab {
+    &__item {
+      max-width: 95%;
+      font-size: 14px;
+      padding: 25px;
+
+    }
+    &__button {
+      &--container {
+        & button + button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+}
+@media screen and (max-width: 768px) and (min-width: 651px) {
+  .tab {
+    &__item {
+      width: 80%;
+      padding: 20px;
+
+    }
+  }
+}
+
+@media screen and (max-width: 650px) and (min-width: 481px) {
+  .tab {
+    &__item {
+      width: 80%;
+      padding: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .tab {
+    &__item {
+      width: 80%;
+      padding: 20px 10px;
+      font-size: 14px;
+
+    }
+    &__button {
+      &--container {
+        & button + button {
+          margin-left: 5px;
+        }
+      }
+    }
+
+  }
 }
