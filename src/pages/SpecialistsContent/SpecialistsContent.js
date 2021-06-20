@@ -35,12 +35,7 @@ const SpecialistsContent = ({
   const renderItems = arrForRender.map((e, index) => // map items for tender
     <TabItem
       key={index}
-      name={e.name}
-      email={e.email}
-      isFavourite={e.isFavourite}
-      isDisfavourite={e.isDisfavourite}
-      specialty={e.specialty}
-      id={e.id}
+      item={e}
     />
   )
 
