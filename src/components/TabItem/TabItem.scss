@@ -5,13 +5,38 @@
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.108);
     border-radius: 10px;
+    position: relative;
   }
   &__header {
     margin: 0;
 
   }
-  &__button--container {
-    display: flex;
-    justify-content: space-around;
-  }
+  &__button {
+    &--container {
+      display: flex;
+      justify-content: space-around;
+    }
+    &--delete {
+      position: absolute;
+      right: 5%;
+      top: 5%;
+      border: 0;
+      cursor: pointer;
+      background-color: transparent;
+      &::after, &::before {
+        content: '|';
+        position: absolute;
+      }
+      &::after {
+        transform: rotate(45deg);
+        top: -1px;
+      }
+      &::before {
+        transform: rotate(135deg);
+        right: 2.5px;
+      }
+      
+
+    }
+}
 }

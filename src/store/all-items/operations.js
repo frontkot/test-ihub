@@ -1,4 +1,4 @@
-import { saveAllItemsToStore, allItemsLoading, toggleItemInStore, addNewItemToStore } from './actions';
+import { saveAllItemsToStore, allItemsLoading, toggleItemInStore, addNewItemToStore, deleteItemFromStore } from './actions';
 import db from '../../firebase.config';
 
 export const loadItems = () => async (dispatch) => {
@@ -15,5 +15,10 @@ export const toggleItem = (newItem) => async (dispatch) => {
 
 export const addNewItem = (newItem) => async (dispatch) => {
     dispatch(addNewItemToStore(newItem)); // add new specialist to store
-    await db.collection('specialists').doc(newItem.name).set(newItem); // add new specialist to DB
+    await db.collection('specialists').doc(newItem.name).set(newItem).then(res => console.log(res)); // add new specialist to DB
+}
+
+export const deleteItem = (item) => async (dispatch) => {
+    dispatch(deleteItemFromStore(item.id)); // delete one of specialists from store
+    await db.collection('specialists').doc(item.name).delete(); // delete one of specialists from DB
 }

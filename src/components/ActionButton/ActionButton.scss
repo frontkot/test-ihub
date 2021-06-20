@@ -11,8 +11,9 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.6);
   &:hover {
-    border-bottom: 2px solid coral;
-    padding-bottom: 6px;
+    border-bottom: 1px solid coral;
+    padding-bottom: 7px;
+    text-shadow: .5px -.5px 3px coral;
   }
 }
   

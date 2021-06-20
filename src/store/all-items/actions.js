@@ -1,4 +1,4 @@
-import { ALL_ITEMS_LOADING, LOAD_ALL_ITEMS, ADD_NEW_ITEM, TOGGLE_ITEM } from './actionTypes';
+import { ALL_ITEMS_LOADING, LOAD_ALL_ITEMS, ADD_NEW_ITEM, TOGGLE_ITEM, DELETE_ITEM } from './actionTypes';
 
 export const allItemsLoading = (isLoading) => ({
   type: ALL_ITEMS_LOADING, 
@@ -18,4 +18,9 @@ export const addNewItemToStore = (newItem) => ({
 export const toggleItemInStore = (newItem, id) => ({
   type: TOGGLE_ITEM,
   payload: {newItem: newItem, id: id}
+})
+
+export const deleteItemFromStore = (id) => ({
+  type: DELETE_ITEM,
+  payload: id
 })
